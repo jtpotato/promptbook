@@ -7,13 +7,13 @@ import "@/styles/globals.css";
 
 // Apparently, this is safe.
 const firebaseConfig = {
-  apiKey: "AIzaSyBlnx3vukVKCpmx6jYFg00qQlJWZ0BXF0E",
-  authDomain: "alexandrium-dev.firebaseapp.com",
-  projectId: "alexandrium-dev",
-  storageBucket: "alexandrium-dev.appspot.com",
-  messagingSenderId: "563355978850",
-  appId: "1:563355978850:web:703820c4358a31ae86953b",
-  measurementId: "G-EZJKRJZSWP",
+  apiKey: "AIzaSyDZ_K2dIMtgZkFRR-caB0hY9COmxgmEEKM",
+  authDomain: "promptbook-jtpotato.firebaseapp.com",
+  projectId: "promptbook-jtpotato",
+  storageBucket: "promptbook-jtpotato.appspot.com",
+  messagingSenderId: "486557673192",
+  appId: "1:486557673192:web:56a7254903c354fb450b5d",
+  measurementId: "G-6ER1X30292"
 };
 
 if (!getApps().length) {
@@ -24,9 +24,7 @@ if (!getApps().length) {
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <GeistProvider>
-        <Component {...pageProps} />
-      </GeistProvider>
+      <Component {...pageProps} />
     </>
   );
 }

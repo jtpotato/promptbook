@@ -7,6 +7,7 @@ import {
   onAuthStateChanged,
   signInWithRedirect,
 } from "firebase/auth";
+import { doc, getFirestore, setDoc } from "firebase/firestore";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -33,7 +34,7 @@ function Auth() {
         const credential = GoogleAuthProvider.credentialFromError(error);
         console.log(errorCode, errorMessage, email, credential);
       });
-    onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(auth, async (user) => {
       if (user) {
         console.log(auth.currentUser);
         const url = new URL(window.location.href).searchParams.get("redirect")!;
@@ -49,7 +50,7 @@ function Auth() {
   return (
     <>
       <h1>Auth</h1>
-      <Loading>Signing you in...</Loading>
+      <>Signing you in...</>
     </>
   );
 }
