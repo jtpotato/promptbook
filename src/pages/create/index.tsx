@@ -61,9 +61,9 @@ function Create() {
 
   return (
     <div className="w-screen flex justify-center items-center">
-      <div className="w-5/6 min-w-96 p-4 space-y-4">
-        <AppBar className="" />
-        <div className="flex items-top justify-center space-x-4 w-full">
+      <div className="w-full p-4 space-y-4 flex flex-col items-center">
+        <AppBar className="w-full" />
+        <div className="flex items-top justify-center space-x-4 w-5/6">
           <div className="w-full">
             <textarea
               placeholder="Assistant is a..."
