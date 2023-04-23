@@ -2,8 +2,8 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { initializeApp, getApps } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { GeistProvider } from "@geist-ui/core";
 import "@/styles/globals.css";
+import AppBar from "@/universal/AppBar";
 
 // Apparently, this is safe.
 const firebaseConfig = {
@@ -13,7 +13,7 @@ const firebaseConfig = {
   storageBucket: "promptbook-jtpotato.appspot.com",
   messagingSenderId: "486557673192",
   appId: "1:486557673192:web:56a7254903c354fb450b5d",
-  measurementId: "G-6ER1X30292"
+  measurementId: "G-6ER1X30292",
 };
 
 if (!getApps().length) {
@@ -24,6 +24,7 @@ if (!getApps().length) {
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
+      <AppBar />
       <Component {...pageProps} />
     </>
   );

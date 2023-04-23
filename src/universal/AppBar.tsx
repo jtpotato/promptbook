@@ -15,7 +15,7 @@ function AppBar(props: HTMLProps<HTMLDivElement>) {
   return (
     <div
       {...props}
-      className={`p-4 bg-neutral-100 rounded-lg flex items-center space-x-2 ${props.className}`}
+      className={`p-4 bg-neutral-100 flex items-center space-x-2 sticky`}
     >
       <div
         className="flex items-center cursor-pointer"
@@ -23,7 +23,7 @@ function AppBar(props: HTMLProps<HTMLDivElement>) {
           router.push("/");
         }}
       >
-        <img src="/icon.png" className="h-12" />
+        <img src="/icon.png" className="h-8" />
         <p className="text-xl font-bold">Promptbook</p>
       </div>
 
