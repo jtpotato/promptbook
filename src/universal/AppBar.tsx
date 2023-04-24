@@ -13,9 +13,9 @@ function AppBar(props: HTMLProps<HTMLDivElement>) {
   });
 
   return (
-    <div
+    <header
       {...props}
-      className={`p-4 bg-neutral-100 flex items-center space-x-2 sticky`}
+      className={`p-4 flex items-center space-x-2`}
     >
       <div
         className="flex items-center cursor-pointer"
@@ -40,7 +40,7 @@ function AppBar(props: HTMLProps<HTMLDivElement>) {
           <Avatar.Fallback className="rounded-full" delayMs={0} />
         </Avatar.Root>
       </div>
-    </div>
+    </header>
   );
 }
 

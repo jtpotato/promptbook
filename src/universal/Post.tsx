@@ -1,3 +1,9 @@
+import { Separator } from "@radix-ui/react-separator";
+import { HTMLAttributes, forwardRef } from "react";
+import LikeCounter from "./Post/LikeCounter";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+
 export interface IPost {
   id: string;
   title: string;
@@ -7,36 +13,27 @@ export interface IPost {
   likes: number;
 }
 
-function Card(props: React.PropsWithChildren) {
-  return (
-    <>
-      <div className="bg-neutral-100 rounded-lg p-4">{props.children}</div>
-    </>
-  );
+export interface IPostElement extends HTMLAttributes<HTMLDivElement> {
+  post: IPost;
 }
 
-function Description(props: React.PropsWithChildren) {
-  return (
-    <>
-      <p className="mb-4">{props.children}</p>
-    </>
-  );
-}
+export const Post = forwardRef(function postElement(props: IPostElement) {
+  dayjs.extend(relativeTime);
 
-function Prompt(props: React.PropsWithChildren) {
   return (
-    <>
-      <p className="bg-gradient-to-t from-transparent via-black/20 to-black bg-clip-text text-transparent">{props.children}</p>
-    </>
+    <div
+      {...props}
+      className={`bg-neutral-100/50 p-4 rounded-lg text-neutral-800 max-w-3xl border-2 border-white bg-scroll ${props.className}`}
+    >
+      <h1 className="font-bold text-lg">{props.post.title}</h1>
+      <p className="text-black/50">{props.post.description}</p>
+      <Separator decorative className="my-4" />
+      <p>{props.post.prompt}</p>
+      <Separator decorative className="my-4 bg-white" style={{ height: "1px" }} />
+      <div className="flex items-center justify-center space-x-2">
+        <LikeCounter post={props.post} />
+        <p className="text-black/50">{dayjs.unix(props.post.time).fromNow()}</p>
+      </div>
+    </div>
   );
-}
-
-function Title(props: React.PropsWithChildren) {
-  return (
-    <>
-      <p className="font-bold">{props.children}</p>
-    </>
-  );
-}
-
-export const Post = { Card, Prompt, Title, Description }
+});

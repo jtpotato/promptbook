@@ -48,6 +48,13 @@ function Create() {
         likes: 0,
         author: uid,
       };
+
+      if (!data.title) return;
+      if (!data.description) return;
+      if (!data.prompt) return;
+
+      console.log("Data is valid.");
+
       const postRef = await addDoc(collection(db, "posts"), data);
       const userRef = doc(db, "users", uid);
       try {
@@ -87,7 +94,7 @@ function Create() {
                 className="bg-neutral-100 p-4 rounded-lg w-full resize-none"
               />
             </div>
-            <button onClick={submitForm} className="bg-blue-50 rounded-lg p-2">
+            <button onClick={submitForm} className="bg-blue-50 rounded-lg p-2 hover:bg-blue-100 active:scale-95 transition-all duration-100 ease-in-out">
               Submit
             </button>
           </div>
